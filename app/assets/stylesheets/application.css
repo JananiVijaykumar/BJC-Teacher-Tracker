@@ -71,3 +71,8 @@ input, select {
 #sign-up-form-container {
   margin-bottom: 80px;
 }
+
+#map {
+  height: 500px;
+  margin-bottom: 15px;
+}
