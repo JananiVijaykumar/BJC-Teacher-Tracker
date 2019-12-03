@@ -75,4 +75,12 @@ Rails.application.routes.draw do
   get 'auth/:provider/callback', to: 'sessions#googleAuth'
   get 'auth/failure', to: redirect('/')
 
+  # Route for validating forms as an admin
+  get '/admin/forms', to: 'teachers#forms', as: "forms"
+  post '/admin/forms/validate/:id', to: 'teachers#validate', as: "validate"
+  post '/admin/forms/delete/:id', to: 'teachers#delete', as: "delete"
+
+  #route for viewing statistics as an admin
+  get '/admin/statistics', to: 'schools#statistics', as: "statistics"
+
 end

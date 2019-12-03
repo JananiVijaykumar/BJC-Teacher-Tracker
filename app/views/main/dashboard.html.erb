@@ -8,14 +8,16 @@
       zoom: 4
     });
 
+    let markers = [];
     <% @items.each do |item| %>
-      var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(<%= item[:long] %>, <%= item[:lat] %>),
-      });
-      marker.setMap(map);
+      markers.push(new google.maps.Marker({
+        position: new google.maps.LatLng(<%= item[:lat] %>, <%= item[:long] %>),
+        map: map
+      }))
     <% end %>
-    
   }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7jyOFHSorVb256ZEwvvyprp2KPjxKTPw&callback=initMap"
-async defer></script>
+
+<script async defer 
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7jyOFHSorVb256ZEwvvyprp2KPjxKTPw&callback=initMap">
+</script>

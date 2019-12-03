@@ -1,18 +1,20 @@
 class MainController < ApplicationController
-    def index
-        @teacher = Teacher.new
+  def index
+    @teacher = Teacher.new
+  end
+
+  def dashboard
+    schools = School.select(:lat, :lng)
+    puts schools.length
+
+    @items = []
+    schools.each do |school|
+      @items << {
+        'long': school[:lng],
+        'lat': school[:lat]
+      }
     end
 
-    def dashboard
-        @items = [
-            {
-                'long': 39,
-                'lat': -95,
-            },
-            {
-                'long': 37,
-                'lat': -92,
-            }
-        ]
-    end
+    puts @items
+  end
 end
