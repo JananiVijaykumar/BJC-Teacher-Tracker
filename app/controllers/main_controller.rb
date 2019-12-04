@@ -5,7 +5,6 @@ class MainController < ApplicationController
 
   def dashboard
     schools = School.select(:lat, :lng)
-    puts schools.length
 
     @items = []
     schools.each do |school|
@@ -14,7 +13,5 @@ class MainController < ApplicationController
         'lat': school[:lat]
       }
     end
-
-    puts @items
   end
 end
